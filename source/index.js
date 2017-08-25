@@ -1,4 +1,4 @@
-var sys = require("sys"),
+var util = require("util"),
 my_http = require("http"),
 url = require("url"),
 filesys = require("fs"),
