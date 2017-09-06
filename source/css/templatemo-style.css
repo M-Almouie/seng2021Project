@@ -150,6 +150,8 @@ button:focus { outline: none; }
 
 .tm-bg-white-translucent { background-color: rgba(255,255,255,0.8); }
 .tm-bg-white-translucent p { color: black; }
+.tm-bg-transparent-translucent { background-color: rgba(255,255,255,0); }
+.tm-bg-transparent-translucent p { color: black; }
 .tm-textbox { 
 	display: inline-block; 
 	width: 100%;
@@ -252,17 +254,58 @@ button:focus { outline: none; }
 	background-color: #0066CC;
 	border: none;
 	color: white;
-	padding: 10px 50px;
-	margin-top: 10px;
+	padding: 0 10px 0 10px ;
+	margin-top: 0px;
+	margin-bottom:1.5rem ;
+	font-weight: 400;
+	font-size: 1.5rem;
+}
+.tm-searchGuide-btn {
+	background-color: #0066CC;
+	border: none;
+	color: white;
+	padding: 0 10px 0 10px ;
+	margin-top: 25px;
+	margin-bottom:1.5rem ;
 	font-weight: 400;
 	font-size: 2.5rem;
 }
-
+.tm-createGuideTour-btn {
+	background-color: #0066CC;
+	border: none;
+	color: white;
+	padding: 0 10px 0 10px ;
+	margin-top: 0px;
+	margin-bottom:0px ;
+	font-weight:300;
+	font-size: 2.0rem;
+}
+.tm-setting-btn {
+	background-color: #0066CC;
+	border: none;
+	color: white;
+	padding: 0 10px 0 10px ;
+	margin-top: 25px;
+	margin-bottom:1.5rem ;
+	font-weight: 400;
+	font-size: 2.5rem;
+}
 .tm-submit-btn:hover,
 .tm-submit-btn:focus {
 	background-color: #2277EE;
 }
-
+.tm-searchGuide-btn:hover,
+.tm-searchGuide-btn:focus {
+	background-color: #2277EE;
+}
+.tm-createGuideTour-btn:hover,
+.tm-createGuideTour-btn:focus {
+	background-color: #2277EE;
+}
+.tm-setting-btn:hover,
+.tm-setting-btn:focus {
+	background-color: #2277EE;
+}
 textarea { height: 168px; }
 
 /* Preloader 
