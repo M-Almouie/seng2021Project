@@ -290,6 +290,17 @@ button:focus { outline: none; }
 	font-weight: 400;
 	font-size: 2.5rem;
 }
+.tm-login-btn {
+	background-color: #0066CC;
+	border: none;
+	color: white;
+	padding: 0 10px 0 10px ;
+	margin-top: 25px;
+	margin-bottom:0rem ;
+	margin-left:2.0rem;
+	font-weight: 400;
+	font-size: 2.5rem;
+}
 .tm-submit-btn:hover,
 .tm-submit-btn:focus {
 	background-color: #2277EE;
@@ -304,6 +315,10 @@ button:focus { outline: none; }
 }
 .tm-setting-btn:hover,
 .tm-setting-btn:focus {
+	background-color: #2277EE;
+}
+.tm-login-btn:hover,
+.tm-login-btn:focus {
 	background-color: #2277EE;
 }
 textarea { height: 168px; }

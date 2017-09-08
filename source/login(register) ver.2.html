@@ -53,45 +53,50 @@
             <ul class="cd-hero-slider">
 
                 <!-- Page 1 Friends -->
-                <li>
-                    <li class="selected">
+                <li class="selected">
                     
-                    <div class="cd-full-width">
-                        <div class="container-fluid js-tm-page-content tm-page-pad" data-page-no="6">
-                            <div class="tm-contact-page">                                
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <div class="tm-flex tm-contact-container">                                
-                                            <div class="tm-bg-white-translucent text-xs-left tm-textbox tm-2-col-textbox-2 tm-textbox-padding tm-textbox-padding-contact">
-                                    
-                                                    <iframe width="500" height="300" frameborder="100" style="border:100"
-                                                src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJP5iLHkCuEmsRwMwyFmh9AQU&key=AIzaSyBmbEuAKvIf8T3uTwDm-cBc_HWa78sIPeY" allowfullscreen></iframe>                                      
-                                                
-                                                <!-- search results -->
+                      <div class="cd-full-width">
+                          <div class="container-fluid js-tm-page-content tm-page-pad" data-page-no="2">
+                              <div class="tm-contact-page">                                
+                                  <div class="row">
+                                      <div class="col-xs-12">
+                                          <div class="tm-flex tm-contact-container">                                                                      
+                                              <div class="tm-bg-white-translucent text-xs-left tm-textbox tm-2-col-textbox-2 tm-textbox-padding tm-textbox-padding-contact">
+                                                <div class="col-xs-6">
+                                                          
+                                                <!--<h2 class="tm-contact-info">Map</h2>-->
+                                                <!-- google map goes here -->
+                                                <iframe width="500" height="500" frameborder="100" style="border:100"
+                                                src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJP5iLHkCuEmsRwMwyFmh9AQU&key=AIzaSyBmbEuAKvIf8T3uTwDm-cBc_HWa78sIPeY" allowfullscreen></iframe>
+                                                </div> 
+                                                <div class="col-xs-6">
+                                                <p>
+                                                    SummarySummarySummarySummarySummarySummarySummarySummarySummarySummarySummarySummarySummary <br>
+                                                    SummarySummarySummarySummarySummarySummarySummarySummarySummarySummarySummarySummarySummary <br>
+                                                    SummarySummarySummarySummarySummarySummarySummarySummarySummarySummarySummarySummarySummary <br>
+                                                </p>
+                                                <!--login buttons-->
+                                                <button type="submit"  class="tm-login-btn btn-block" href="mainpage.html" >login with Facebook</button> 
                                                     
-                                            </div>
-                                            <!--create for fun-->
-                                            <div class="tm-bg-white-translucent text-xs-left tm-textbox tm-2-col-textbox-2 tm-textbox-padding tm-textbox-padding-contact">
-                                                    <button type="submit" style="width:100%" class="pull-xs-right tm-submit-btn" href="mainpage.html">login with Facebook</button> 
-                                                    <br><br><br>
-                                                    <button class="pull-xs-right tm-submit-btn" style="width:100%" tm-submit-btn" href="register.html">Register with Facebook</button>
+                                                <button class="tm-login-btn btn-block" href="register.html" >Register with Facebook</button>
                                                 
-                                            </div>
+                                                </div> 
+                                                            
 
-                                        </div>
 
-                                    </div>
+                                              </div>
 
-                                </div>
+                                          </div>
 
-                            </div>    
+                                      </div>
+                                  </div>
 
-                        </div>
+                              </div>    
+
+                          </div>
                         
-                    </div> <!-- .cd-full-width -->
-                
-                
-                    </li><!--selected-->
+                       </div> <!-- .cd-full-width -->
+                     
                 </li>
                
                 
@@ -322,7 +327,19 @@
             <!-- icons at the bottom -->
             <footer class="tm-footer">
             
-                
+                <div class="tm-social-icons-container text-xs-center">
+                    <button style="color: black;font-weight: bold"> About Us </button>
+                    <button style="color: black;font-weight: bold"> FAQ </button>
+                    <p>
+                        <!--This one is placed in-line and doesn't require the external JS:-->
+                        copyright &copy;
+                        <script>
+                            var today = new Date();
+                            var year = today.getFullYear();
+                            document.write(year)
+                        </script>
+                    </p>
+                </div>
                 
 
             </footer>

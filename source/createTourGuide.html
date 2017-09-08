@@ -331,9 +331,18 @@
             <!-- icons at the bottom -->
             <footer class="tm-footer">
             
-                <div class="tm-social-icons-container text-xs-center">
-                    <a href="http://www.facebook.com" class="tm-social-link"><i class="fa fa-facebook-official"></i></a>
-                    <a href="https://plus.google.com" class="tm-social-link"><i class="fa fa-google-plus"></i></a> 
+               <div class="tm-social-icons-container text-xs-center">
+                    <button style="color: black;font-weight: bold"> About Us </button>
+                    <button style="color: black;font-weight: bold"> FAQ </button>
+                    <p>
+                        <!--This one is placed in-line and doesn't require the external JS:-->
+                        copyright &copy;
+                        <script>
+                            var today = new Date();
+                            var year = today.getFullYear();
+                            document.write(year)
+                        </script>
+                    </p>
                 </div>
                 
                 
