@@ -74,7 +74,7 @@ a:focus {
 	    justify-content: space-between;
 	padding-left: 10px;
 	padding-right: 10px;
-	background-color: rgba(255,255,255,0.7);
+	background-color: rgba(255,255,255,0.8);
 	overflow: auto;
 }
 
@@ -130,7 +130,7 @@ button:focus { outline: none; }
 .cd-slider-nav .nav-link:hover,
 .cd-slider-nav .nav-link:focus {
 	background-color: rgba(255,255,255,1);
-	color: #5394D6;
+	color: #FF4500;
 }
 
 /* Hero Slider */
@@ -204,12 +204,12 @@ button:focus { outline: none; }
 
 .tm-footer {
     width: 100%;
-    color: white;
+    color: rgb(255,69,0);
     z-index: 1001;
     padding: 0 11px 12px;
 }
 
-.tm-social-icons-container { margin-bottom: 30px; }
+.tm-social-icons-container {margin-bottom: 0px; background-color:rgba(255,255,255,0);width:100%;}
 
 .cd-full-width {
 	display: -ms-flexbox;
@@ -670,7 +670,7 @@ figure.effect-ruby:hover img {
 }
 
 @media only screen and (min-width: 600px) {
-	.tm-footer { padding: 50px 30px 20px; }
+	.tm-footer { padding: 0px 0px 0px 0px  }
 	.tm-copyright-text { width: auto; }
 }
 
