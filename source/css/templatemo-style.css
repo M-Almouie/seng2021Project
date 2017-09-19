@@ -251,7 +251,7 @@ button:focus { outline: none; }
 .form-group { margin-bottom: 1.5rem; }
 
 .tm-submit-btn {
-	background-color: #0066CC;
+	background-color: #FF4500;
 	border: none;
 	color: white;
 	padding: 0 10px 0 10px ;
@@ -261,7 +261,7 @@ button:focus { outline: none; }
 	font-size: 1.5rem;
 }
 .tm-searchGuide-btn {
-	background-color: #0066CC;
+	background-color: #FF4500;
 	border: none;
 	color: white;
 	padding: 0 10px 0 10px ;
@@ -271,7 +271,7 @@ button:focus { outline: none; }
 	font-size: 2.5rem;
 }
 .tm-createGuideTour-btn {
-	background-color: #0066CC;
+	background-color: #FF4500；
 	border: none;
 	color: white;
 	padding: 0 10px 0 10px ;
@@ -281,7 +281,7 @@ button:focus { outline: none; }
 	font-size: 2.0rem;
 }
 .tm-setting-btn {
-	background-color: #0066CC;
+	background-color: #FF4500;
 	border: none;
 	color: white;
 	padding: 0 10px 0 10px ;
@@ -291,7 +291,7 @@ button:focus { outline: none; }
 	font-size: 2.5rem;
 }
 .tm-login-btn {
-	background-color: #0066CC;
+	background-color: #FF4500;
 	border: none;
 	color: white;
 	padding: 0 10px 0 10px ;
