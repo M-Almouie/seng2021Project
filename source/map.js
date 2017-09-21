@@ -12,7 +12,7 @@ function initMap() {
         center: tartous
     });
 
-    var friendImage = "img/happy.png";
+    var friendImage = "img/MyTrackLogo.png";
     var me = new google.maps.Marker({
         position: unsw,
         map: map1,
