@@ -209,7 +209,7 @@ button:focus { outline: none; }
     padding: 0 11px 12px;
 }
 
-.tm-social-icons-container {margin-bottom: 0px; background-color:rgba(255,255,255,0);width:100%;}
+.tm-social-icons-container {margin-bottom: 0px; background-color:rgba(255,69,0,0);width:100%;}
 
 .cd-full-width {
 	display: -ms-flexbox;
@@ -271,9 +271,9 @@ button:focus { outline: none; }
 	font-size: 2.5rem;
 }
 .tm-createGuideTour-btn {
-	background-color: #FF4500；
+	background-color: #FFFF00；
 	border: none;
-	color: white;
+	color: black;
 	padding: 0 10px 0 10px ;
 	margin-top: 0px;
 	margin-bottom:0px ;
