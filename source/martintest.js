@@ -1,6 +1,5 @@
 var Db = require("./mydb");
 var User = require("./user");
-var test = require(".");
 
 var connection = Db.createConnection();
 Db.init(connection);
