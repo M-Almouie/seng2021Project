@@ -162,19 +162,20 @@
                                                     <div class="form-group">
                                                         <input type="text" id="contact_name" name="contact_name" class="form-control" placeholder="Search" required/>
                                                     </div>
-                                                    <button type="submit" class="tm-submit-btn pull-xs-right" style="height:25px;width:100px ">Search</button>
-                                                    
-                                                    <div class="form-group">                                                       
-                                                        <input type="text" name="country" value="Search result 1" class="form-control" readonly>
+                                                    <button onclick="myfunction()" type="submit" class="tm-submit-btn pull-xs-right" style="height:25px;width:100px ">Search</button>
+
+
+                                                    <div class="form-group">
+                                                        <button onclick="myfunction2('Martin Hemmingsen')" id="martininput" type="text" name="country" class="form-control" style="display: none" readonly> Martin Hemmingsen </button>
                                                     </div>                                                        
-                                                    <div class="form-group">                                                       
-                                                        <input type="text" name="country" value="Search result 2" class="form-control" readonly>
+                                                    <div class="form-group">
+                                                        <button onclick="myfunction2('Kat Huang')" id="katinput" type="text" name="country" class="form-control" style="display: none" readonly> Kat Huang </button>
                                                     </div>
-                                                    <div class="form-group">                                                       
-                                                        <input type="text" name="country" value="Search result 3" class="form-control" readonly>
+                                                    <div class="form-group">
+                                                        <button onclick="myfunction2('Ting Chen')" id="tinginput" type="text" name="country" class="form-control" style="display: none"readonly> Ting Chen </button>
                                                     </div>
-                                                    <div class="form-group">                                                       
-                                                        <input type="text" name="country" value="Search result 4" class="form-control" readonly>
+                                                    <div class="form-group">
+                                                        <button onclick="myfunction2('Yida Hao')" id="yidainput" type="text" name="country" class="form-control" style="display: none" readonly> Yida Hao </button>
                                                     </div>
                                                    
                                                 
@@ -479,8 +480,49 @@
                 $('body').addClass('loaded');
                            
             });
+        function myfunction() {
+            var searchString=document.getElementById("contact_name").value;
+            searchString = searchString.toLowerCase();
 
-           
+            document.getElementById("yidainput").style.display = "none";
+            document.getElementById("katinput").style.display = "none";
+            document.getElementById("martininput").style.display = "none";
+            document.getElementById("tinginput").style.display = "none";
+
+            var martin = "martin";
+            var yida = "yida";
+            var kat = "kat";
+            var cheng = "cheng";
+
+
+            if(martin.startsWith(searchString)) {
+                //document.getElementById("martininput").value="hej";
+                document.getElementById("martininput").style.display = "block";
+
+            }
+            else if(yida.startsWith(searchString)) {
+                document.getElementById("yidainput").style.display = "block";
+            }
+            else if(kat.startsWith(searchString)) {
+                document.getElementById("katinput").style.display = "block";
+            }
+            else if(cheng.startsWith(searchString)) {
+                document.getElementById("chenginput").style.display = "block";
+            }
+        }
+        function myfunction2(name) {
+            alert(name);
+            if (name == "Martin Hemmingsen") {
+                //focus martin
+
+            } else if (name == "Kat Huang") {
+                //focus kat
+            } else if (name == "Ting Chen") {
+                //focus ting
+            } else if (name == "Yida Hao") {
+                //focus yida
+            }
+        }
 
         </script>            
 
