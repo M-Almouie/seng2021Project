@@ -2,12 +2,49 @@
 var exports = module.exports = {};
 
 
-var User = function(id, name, email, friends) {
+var User = function(id, name, email, text, picture, location, friends) {
     this.id=id;
     this.name=name;
     this.email=email;
     this.friends=friends;
+    this.location = location;
+    this.picture = picture;
+    this.text=text;
 }
+
+User.prototype.getName = function () {
+    return this.name;
+}
+
+User.prototype.getId = function () {
+    return this.id;
+}
+
+User.prototype.getEmail = function () {
+    return this.email;
+}
+
+User.prototype.getText = function () {
+    return'<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h1 id="firstHeading" class="firstHeading">You Are Here</h1>'+
+        '<div id="bodyContent">'+
+        '<p>Martin Hemmingsen</p>'+
+        '<p>Location: ' + this.location + ' </p>'+
+        '<p>Currently Active</p>'+
+        '</div>'+
+        '</div>';
+}
+
+User.prototype.getPicture = function () {
+    return this.picture;
+}
+
+User.prototype.getLocation = function () {
+    return this.location;
+}
+
 
 User.prototype.sayName = function () {
     console.log(this.name);
