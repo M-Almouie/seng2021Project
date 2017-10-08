@@ -4,6 +4,7 @@ url = require("url"),
 filesys = require("fs"),
 path = require("path");
 var User = require("./user");
+var db = require("./staticdb");
 
 my_http.createServer(function(request,response){
     var my_path = url.parse(request.url).pathname;
@@ -25,6 +26,7 @@ my_http.createServer(function(request,response){
                 }
                 console.log('body: ' + body);
             })
+            db.init();
 
             filesys.readFile(full_path, "binary", function (err, file) {
                 if (err) {
@@ -48,6 +50,8 @@ my_http.createServer(function(request,response){
                             else {
                                 var coogee = {lat:-33.919981, lng:151.258340};
                                 var loginUser = User.createUser("882288945281052", "Martin Hemmingsen", "martin@hemmingsens.dk", "img/MyTrackLogo.png",coogee, null);
+
+                                console.log("friends" + db.getUsers(loginUser.getId()));
 
                                 response.write("var map1 = createMap('map',17,unswQuadrangle);");
                                 response.write('var map2 = createMap(\'mapSecond\',17,unswQuadrangle);\n' +

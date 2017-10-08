@@ -2,14 +2,13 @@
 var exports = module.exports = {};
 
 
-var User = function(id, name, email, text, picture, location, friends) {
+var User = function(id, name, email, picture, location, friends) {
     this.id=id;
     this.name=name;
     this.email=email;
     this.friends=friends;
     this.location = location;
     this.picture = picture;
-    this.text=text;
 }
 
 User.prototype.getName = function () {
@@ -45,6 +44,10 @@ User.prototype.getLocation = function () {
     return this.location;
 }
 
+User.prototype.getFriends = function () {
+    return this.friends;
+}
+
 
 User.prototype.sayName = function () {
     console.log(this.name);
@@ -53,7 +56,7 @@ User.prototype.sayEmail = function () {
     console.log(this.email);
 }
 
-exports.createUser = function(id,name,email,friends){
-    return new User(id,name,email,friends);
+exports.createUser = function(id, name, email, picture, location, friends){
+    return new User(id, name, email, picture, location, friends);
 }
 
