@@ -17,9 +17,10 @@ window.fbAsyncInit = function() {
 		if (response.status === 'connected') {
 			//display user data
 			getFbUserData();
-      getFbFriendsData();
+
 		}
 	});
+
 };
 
 // Load the JavaScript SDK asynchronously
@@ -40,28 +41,69 @@ function fbLogin() {
         } else {
             document.getElementById('status').innerHTML = 'User cancelled login or did not fully authorize.';
         }
-    }, {scope: 'email'});
+    }, {scope:'email,user_friends'});
 }
 
 // Fetch the user profile data from facebook
 function getFbUserData(){
-    FB.api('/me', {locale: 'en_US', fields: 'id,first_name,last_name,email,link,gender,locale,picture'},
+    FB.api('/me', {locale: 'en_US', fields: 'id,first_name,last_name,email,link,gender,locale,picture,friends'},
     function (response) {
-        post({id:response.id,firstname:response.first_name,lastname:response.last_name,email:response.email});
+        //alert(response.friends);
+        //alert("hello");
+        //post({id:response.id,firstname:response.first_name,lastname:response.last_name,email:response.email});
         //document.getElementById('fbLink').setAttribute("onclick","fbLogout()");
         //document.getElementById('fbLink').innerHTML = 'Logout from Facebook';
         //document.getElementById('status').innerHTML = 'Thanks for logging in, ' + response.first_name + '!';
         //document.getElementById('userData').innerHTML = '<p><b>FB ID:</b> '+response.id+'</p><p><b>Name:</b> '+response.first_name+' '+response.last_name+'</p><p><b>Email:</b> '+response.email+'</p><p><b>Gender:</b> '+response.gender+'</p><p><b>Locale:</b> '+response.locale+'</p><p><b>Picture:</b> <img src="'+response.picture.data.url+'"/></p><p><b>FB Profile:</b> <a target="_blank" href="'+response.link+'">click to view profile</a></p>';
        //Email:</b> '+response.email+'</p><p><b>Gender:</b> '+response.gender+'</p><p><b>Locale:</b> '+response.locale+'</p><p><b>Picture:</b> <img src="'+response.picture.data.url+'"/></p><p><b>FB Profile:</b> <a target="_blank" href="'+response.link+'">click to view profile</a></p>';
     });
+    /*FB.api(
+        '/me/friends',
+        'GET',
+        {"fields":"id,name"},
+        function(response) {
+            alert("hel");
+            alert(response);
+            // Insert your code here
+        }
+    );*/
 
+    //getFriends();
+    FB.api('/me/friends','GET',
+        function (response) {
+            alert(response.toSource());
+            alert(response.data);
+            alert(response.data.id);
+            var parsed = JSON.parse(response.data);
+
+            alert(parsed);
+            for (element in response.data) {
+                //var parsed = JSON.parse(rawData);
+                //document.getElementById('userFriends').innerHTML = 'FB friends: ' + element.id;
+                alert('mytest');
+                alert(element);
+            }
+
+            console.log(parsed[0].a1); // logs "b1"
+            console.log(parsed[1].a2); // logs "b2"
+        });
 }
-function getFbFriendsData(){
-    FB.api('/me/friends', {locale: 'en_US', fields: 'name'},
-    function (response) {
-        document.getElementById('userFriends').innerHTML = '<p><b>FB Friends:</b> '+response.name;
-});
+function getFriends() {
+    FB.api('/me/friends', function(response) {
+        alert(response);
+        alert(response.data);
+        if(response.data) {
+            //alert("2");
+            alert(response.data);
+            $.each(response.data,function(index,friend) {
+                alert(friend.name + ' has id:' + friend.id);
+            });
+        } else {
+            alert("Error!");
+        }
+    });
 }
+
 
 // Logout from facebook
 function fbLogout() {
@@ -110,6 +152,6 @@ function post(params) {
 
 <!-- Display user profile data -->
 <div id="userData"></div>
-<div id="userFriends"></div>
+
 </body>
 </html>
