@@ -25,7 +25,6 @@ my_http.createServer(function(request,response){
                 if (my_path == "/mp1.html") {
                     console.log('body: ' + body);
                 }
-                console.log('body: ' + body);
             })
 
             filesys.readFile(full_path, "binary", function (err, file) {
@@ -50,7 +49,7 @@ my_http.createServer(function(request,response){
                                 var coogee = {lat:-33.919981, lng:151.258340};
                                 var loginUser = User.createUser("882288945281052", "Martin Hemmingsen", "martin@hemmingsens.dk", "img/MyTrackLogo.png",coogee, null);
 
-                                console.log("friends" + db.getUsers(loginUser.getId()));
+                                //console.log("friends" + db.getUsers(loginUser.getId()));
 
                                 //TODO: instead of following content get users from static db and use that information
 
