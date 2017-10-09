@@ -5,6 +5,7 @@ filesys = require("fs"),
 path = require("path");
 var User = require("./user");
 var db = require("./staticdb");
+db.init();
 
 my_http.createServer(function(request,response){
     var my_path = url.parse(request.url).pathname;
@@ -26,7 +27,6 @@ my_http.createServer(function(request,response){
                 }
                 console.log('body: ' + body);
             })
-            db.init();
 
             filesys.readFile(full_path, "binary", function (err, file) {
                 if (err) {
@@ -42,16 +42,17 @@ my_http.createServer(function(request,response){
                         mp2path = path.join(process.cwd(),"mp2.html");
                         filesys.readFile(mp2path, "binary", function (err, file) {
                             if (err) {
-                                //console.log(err);
                                 response.write(err + "\n");
                                 response.end();
-                                //console.log("fail");
                             }
                             else {
+                                //TODO parse info from post (is in var "body") and populate loginUser with this information
                                 var coogee = {lat:-33.919981, lng:151.258340};
                                 var loginUser = User.createUser("882288945281052", "Martin Hemmingsen", "martin@hemmingsens.dk", "img/MyTrackLogo.png",coogee, null);
 
                                 console.log("friends" + db.getUsers(loginUser.getId()));
+
+                                //TODO: instead of following content get users from static db and use that information
 
                                 response.write("var map1 = createMap('map',17,unswQuadrangle);");
                                 response.write('var map2 = createMap(\'mapSecond\',17,unswQuadrangle);\n' +
@@ -161,10 +162,7 @@ my_http.createServer(function(request,response){
                                     'startBounce(marker4);\n' +
                                     'startBounce(marker5);\n' +
                                     'startBounce(marker6);');
-                                //console.log("succes");
-                                response.write("");
                                 response.write(file, "binary");
-                                response.write("test");
                                 response.end();
                             }
                         });
@@ -172,7 +170,6 @@ my_http.createServer(function(request,response){
                         response.end();
                     }
                 }
-                return response
             })
         }
     });
