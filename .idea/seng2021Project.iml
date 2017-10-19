@@ -11,5 +11,7 @@
     <orderEntry type="library" name="html5shiv" level="application" />
     <orderEntry type="library" name="respond" level="application" />
     <orderEntry type="library" name="2a0b548149" level="application" />
+    <orderEntry type="library" name="smtp" level="application" />
+    <orderEntry type="library" name="email" level="application" />
   </component>
 </module>

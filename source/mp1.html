@@ -2,8 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="Nifty Modal Window Effects with CSS Transitions and Animations" />
+    <meta name="keywords" content="modal, window, overlay, modern, box, css transition, css animation, effect, 3d, perspective" />
+    <meta name="author" content="Codrops" />
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" type="text/css" href="css/default.css" />
+    <link rel="stylesheet" type="text/css" href="css/component.css" />
+    <script src="js/modernizr.custom.js"></script>
     <title>My track</title>
     <style>
         #map,#mapSecond,#panorama1,#panorama2 {
@@ -45,7 +52,6 @@
             <div class="tm-navbar-bg">
 
                 <a class="navbar-brand text-uppercase" href="#0"><font color="#ff4500"><i class="fa fa-street-view"></i>Mytrack</font></a>
-                <a class="navbar-brand">Hello Mohamed</a>
                 <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#tmNavbar">
                     &#9776;
                 </button>
@@ -56,12 +62,6 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#0" data-no="2">Guides</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#0" data-no="3">Search friends</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#0" data-no="4">Search guides</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#0" data-no="5">Profile preference</a>
@@ -82,6 +82,46 @@
             <div class="cd-full-width">
                 <div class="container-fluid js-tm-page-content tm-page-pad" data-page-no="2">
                     <div class="tm-contact-page">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <div class="tm-flex tm-contact-container">
+                                    <div class="tm-bg-white-translucent text-xs-left tm-textbox tm-2-col-textbox-2" style="padding:30px 30px 32px 30px">
+                                        <a class="btn btn-primary tm-help-btn btn-xl js-scroll-trigger md-trigger" data-modal="modal-1">HELP</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-9">
+                                <div class="tm-flex tm-contact-container">
+                                    <div class="tm-bg-white-translucent text-xs-left tm-textbox tm-2-col-textbox-2" style="padding:30px 30px 10px 30px">
+                                        <div class="form-group">
+                                            <input type="text" id="contact_name" name="contact_name" class="form-control" placeholder="Search" required/>
+                                        </div>
+                                        <button onclick="myfunction()" type="submit" class="tm-submit-btn pull-xs-right" style="height:25px;width:100px ">Search</button>
+                                        <div class="form-group">
+                                            <button onclick="myfunction2('Martin Hemmingsen')" id="martininput" type="text" name="country" class="form-control" style="display: none" readonly> Martin Hemmingsen </button>
+                                        </div>
+                                        <div class="form-group">
+                                            <button onclick="myfunction2('Kat Huang')" id="katinput" type="text" name="country" class="form-control" style="display: none" readonly> Kat Huang </button>
+                                        </div>
+                                        <div class="form-group">
+                                            <button onclick="myfunction2('Ting Chen')" id="tinginput" type="text" name="country" class="form-control" style="display: none"readonly> Ting Chen </button>
+                                        </div>
+                                        <div class="form-group">
+                                            <button onclick="myfunction2('Yida Hao')" id="yidainput" type="text" name="country" class="form-control" style="display: none" readonly> Yida Hao </button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="tm-bg-transparent-translucent text-xs-left tm-textbox tm-2-col-textbox-2" style="padding:0px">
+                                    <!--a gap-->
+                                </div>
+                            </div>
+                        </div>
                         <div class="row">
 
                             <div class="col-xs-6">
@@ -118,7 +158,7 @@
                                                         'Error: Your browser doesn\'t support geolocation.');
                                                     infoWindow.open(map);
                                                 }
-                                                function createFriendMarker(position, map, icon) {
+                                                function createFriendMarker(position, map, icon,name) {
                                                     var marker = new google.maps.Marker({
                                                         position: position,
                                                         map: map,
@@ -144,26 +184,6 @@
                                                     return infowindow;
                                                 }
 
-
-                                                function setStreetView(map,marker) {
-                                                    marker.addListener('click', function() {
-
-                                                        createStreetView1(map)
-                                                    });
-                                                }
-
-                                                function createStreetView1(map) {
-                                                    var panorama = new google.maps.StreetViewPanorama(
-                                                        document.getElementById('map'), {
-                                                            position: tartous,
-                                                            pov: {
-                                                                heading: 34,
-                                                                pitch: 10
-                                                            }
-                                                        });
-                                                    map.setStreetView(panorama);
-                                                }
-
                                                 function startBounce(marker) {
                                                     marker.addListener('mousemove', function toggleBounce() {
                                                         if (marker.getAnimation() !== null) {
@@ -173,8 +193,11 @@
                                                         }
                                                     });
                                                 }
-
-
+                                                function createPopupBox(map, marker, infowindow) {
+                                                    marker.addListener('click', function () {
+                                                        infowindow.open(map, marker);
+                                                    });
+                                                }
 
                                                 var sydney = {lat: -33.8688, lng: 151.2093};
                                                 var unsw = {lat: -33.9173, lng: 151.2313};
@@ -183,5 +206,6 @@
                                                 var unswLibrary = {lat:-33.917193,lng: 151.233255};
                                                 var unswQuadrangle = {lat:-33.916999, lng:151.230279};
                                                 var cse = {lat  : -33.918628, lng: 151.231132};
-
+                                                var map1;
+                                                var map2;
                                                 <!-- var coogee = {lat:-33.919981, lng:151.258340};-->

@@ -1,13 +1,29 @@
 function initMap() {
 
-    function createMap(ID, zoom, center) {
+    function createMap(ID, zoom, center,pano) {
         var map = new google.maps.Map(document.getElementById(ID), {
-            zoom : zoom,
+            zoom: zoom,
             center: center
         });
+        var panorama = new google.maps.StreetViewPanorama(
+            document.getElementById(pano), {
+                position: center,
+                pov: {
+                    heading: 30,
+                    pitch: 10
+                }
+            });
+        map.setStreetView(panorama);
         return map;
     }
 
+    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+            'Error: The Geolocation service failed.' :
+            'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+    }
     function createFriendMarker(position, map, icon) {
         var marker = new google.maps.Marker({
             position: position,
@@ -33,8 +49,6 @@ function initMap() {
         });
         return infowindow;
     }
-
-
     function createPopupBox(map, marker, infowindow) {
         marker.addListener('click', function() {
             infowindow.open(map, marker);
@@ -42,7 +56,7 @@ function initMap() {
     }
 
     function startBounce(marker) {
-        marker.addListener('mousemove', function tooggleBounce() {
+        marker.addListener('mousemove', function toggleBounce() {
             if (marker.getAnimation() !== null) {
                 marker.setAnimation(null);
             } else {
@@ -50,6 +64,8 @@ function initMap() {
             }
         });
     }
+
+
 
     var sydney = {lat: -33.8688, lng: 151.2093};
     var unsw = {lat: -33.9173, lng: 151.2313};
@@ -60,122 +76,45 @@ function initMap() {
     var cse = {lat  : -33.918628, lng: 151.231132};
     var coogee = {lat:-33.919981, lng:151.258340};
 
-    var map1 = createMap('map',17,unswQuadrangle);
-    var map2 = createMap('mapSecond',17,unswQuadrangle);
 
     var friendImage = "img/MyTrackLogo.png";
+    var map1;
+    var map2;
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            var pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+            map1 = createMap('map',17,pos,'panorama1');
+            map2 = createMap('mapSecond',17,pos,'panorama2');
+            map1.setCenter(pos);
+            map2.setCenter(pos);
+            var me = createUserMarker(pos,map1);
+            var marker1 = createFriendMarker(tartous, map1, friendImage);
+            var marker2 = createFriendMarker(roseBay, map1, friendImage);
+            var marker3 = createFriendMarker(unswLibrary, map1, friendImage);
+            var marker4 = createFriendMarker(cse, map1, friendImage);
+            var marker5 = createFriendMarker(sydney, map1, friendImage);
+            var marker6 = createFriendMarker(coogee, map1, friendImage);
 
-    var me = createUserMarker(unswQuadrangle,map1);
-    var marker1 = createFriendMarker(tartous, map1, friendImage);
-    var marker2 = createFriendMarker(roseBay, map1, friendImage);
-    var marker3 = createFriendMarker(unswLibrary, map1, friendImage);
-    var marker4 = createFriendMarker(cse, map1, friendImage);
-    var marker5 = createFriendMarker(sydney, map1, friendImage);
-    var marker6 = createFriendMarker(coogee, map1, friendImage);
+            startBounce(me);
+            startBounce(marker1);
+            startBounce(marker2);
+            startBounce(marker3);
+            startBounce(marker4);
+            startBounce(marker5);
+            startBounce(marker6);
 
-    var meString = '<div id="content">'+
-        '<div id="siteNotice">'+
-        '</div>'+
-        '<h1 id="firstHeading" class="firstHeading">You Are Here</h1>'+
-        '<div id="bodyContent">'+
-        '<p>Mohamed Al Mouiee</p>'+
-        '<p>Location: Randwick, Australia</p>'+
-        '<p>Currently Active</p>'+
-        '</div>'+
-        '</div>';
+        }, function () {
+            handleLocationError(true, map.getCenter());
+        });
 
-    var joString = '<div id="content">'+
-        '<div id="siteNotice">'+
-        '</div>'+
-        '<h1 id="firstHeading" class="firstHeading">John Smith</h1>'+
-        '<div id="bodyContent">'+
-        '<p>John Smith</p>'+
-        '<p>Location: Rose Bay, Australia</p>'+
-        '<p>Last Seen: 12:39pm 19/09/2017</p>'+
-        '</div>'+
-        '</div>';
-
-    var boString = '<div id="content">'+
-        '<div id="siteNotice">'+
-        '</div>'+
-        '<h1 id="firstHeading" class="firstHeading">Some body</h1>'+
-        '<div id="bodyContent">'+
-        '<p>Some body</p>'+
-        '<p>Location: Coogee, Australia</p>'+
-        '<p>Last Seen: 12:39pm 19/09/2017</p>'+
-        '</div>'+
-        '</div>';
-
-    var soString = '<div id="content">'+
-        '<div id="siteNotice">'+
-        '</div>'+
-        '<h1 id="firstHeading" class="firstHeading">Every body</h1>'+
-        '<div id="bodyContent">'+
-        '<p>Every body</p>'+
-        '<p>Location: Randwick, Australia</p>'+
-        '<p>Last Seen: 12:39pm 19/09/2017</p>'+
-        '</div>'+
-        '</div>';
-
-    var moString = '<div id="content">'+
-        '<div id="siteNotice">'+
-        '</div>'+
-        '<h1 id="firstHeading" class="firstHeading">Every body</h1>'+
-        '<div id="bodyContent">'+
-        '<p>Every body</p>'+
-        '<p>Location: Randwick, Australia</p>'+
-        '<p>Last Seen: 12:39pm 19/09/2017</p>'+
-        '</div>'+
-        '</div>';
-
-    var doString = '<div id="content">'+
-        '<div id="siteNotice">'+
-        '</div>'+
-        '<h1 id="firstHeading" class="firstHeading">Any body</h1>'+
-        '<div id="bodyContent">'+
-        '<p>Any Body</p>'+
-        '<p>Location: Randwick, Australia</p>'+
-        '<p>Last Seen: 12:39pm 19/09/2017</p>'+
-        '</div>'+
-        '</div>';
-
-    var foString = '<div id="content">'+
-        '<div id="siteNotice">'+
-        '</div>'+
-        '<h1 id="firstHeading" class="firstHeading">The body</h1>'+
-        '<div id="bodyContent">'+
-        '<p>The body</p>'+
-        '<p>Location: Rose Bay</p>'+
-        '<p>Last Seen: 12:39pm 19/09/2017</p>'+
-        '</div>'+
-        '</div>';
-
-    var infowindow0 = WindowInfo(meString);
-    createPopupBox(map1,me,infowindow0);
-
-    var infowindow1 = WindowInfo(moString);
-    createPopupBox(map1,marker1,infowindow1);
-
-    var infowindow2 = WindowInfo(joString);
-    createPopupBox(map1,marker2,infowindow2);
-
-    var infowindow3 = WindowInfo(doString);
-    createPopupBox(map1,marker3,infowindow3);
-
-    var infowindow4 = WindowInfo(soString);
-    createPopupBox(map1,marker4,infowindow4);
-
-    var infowindow5 = WindowInfo(foString);
-    createPopupBox(map1,marker5,infowindow5);
-
-    var infowindow6 = WindowInfo(boString);
-    createPopupBox(map1,marker6,infowindow6);
-
-    startBounce(me);
-    startBounce(marker1);
-    startBounce(marker2);
-    startBounce(marker3);
-    startBounce(marker4);
-    startBounce(marker5);
-    startBounce(marker6);
+    } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, map.getCenter());
+    }
 }
+
+
+

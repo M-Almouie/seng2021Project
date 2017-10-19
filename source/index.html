@@ -62,7 +62,7 @@ function getFbUserData(){
         for (i=0;i<response.friends.data.length;i++) {
             friendids.push(response.friends.data[i].id);
             friendnames.push(response.friends.data[i].name);
-            alert("name: " + response.friends.data[i].name + " id: " + response.friends.data[i].id);
+
         }
         post({id:id,firstname:firstname,lastname:lastname,email:email,friendids:friendids,friendnames:friendnames});
     });
@@ -83,7 +83,6 @@ function fbLogout() {
 function post(params) {
     var method = "post"; // Set method to post by default
     var path = "/mp1.html";
-
     // The rest of this code assumes you are not using a library.
     // It can be made less wordy if you use one.
     var form = document.createElement("form");

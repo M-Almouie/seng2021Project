@@ -16,9 +16,7 @@
             <!-- google map goes here -->
             <div id="panorama1"></div>
             <script src="map.js"></script>
-            <script async defer
-                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXDnOE0MEzMiuTzuQ6sdYM3aRUc3vVYig&callback=initMap">
-            </script>
+
             <!--<div id="">map</div>-->
         </div>
 
@@ -77,109 +75,9 @@
 </li>
 
 <!-- Page 3 Search friends -->
-<li>
-    <div class="cd-full-width">
-        <div class="container-fluid js-tm-page-content tm-page-pad" data-page-no="6">
-            <div class="tm-contact-page">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="tm-flex tm-contact-container">
-                            <div class="tm-bg-white-translucent text-xs-left tm-textbox tm-2-col-textbox-2 tm-textbox-padding tm-textbox-padding-contact">
-
-
-
-                                <!-- search -->
-                                <!--<form action="index.html" method="post" class="tm-contact-form">-->
-                                <div class="form-group">
-                                    <input type="text" id="contact_name" name="contact_name" class="form-control" placeholder="Search" required/>
-                                </div>
-                                <button onclick="myfunction()" type="submit" class="tm-submit-btn pull-xs-right" style="height:25px;width:100px ">Search</button>
-
-
-                                <div class="form-group">
-                                    <button onclick="myfunction2('Martin Hemmingsen')" id="martininput" type="text" name="country" class="form-control" style="display: none" readonly> Martin Hemmingsen </button>
-                                </div>
-                                <div class="form-group">
-                                    <button onclick="myfunction2('Kat Huang')" id="katinput" type="text" name="country" class="form-control" style="display: none" readonly> Kat Huang </button>
-                                </div>
-                                <div class="form-group">
-                                    <button onclick="myfunction2('Ting Chen')" id="tinginput" type="text" name="country" class="form-control" style="display: none"readonly> Ting Chen </button>
-                                </div>
-                                <div class="form-group">
-                                    <button onclick="myfunction2('Yida Hao')" id="yidainput" type="text" name="country" class="form-control" style="display: none" readonly> Yida Hao </button>
-                                </div>
-
-
-                                <!--</form> -->
-                            </div>
-
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div> <!-- .cd-full-width -->
-</li>
 
 <!-- Page 4 Search guides -->
-<li>
-    <div class="cd-full-width">
-        <div class="container-fluid js-tm-page-content tm-page-pad" data-page-no="6">
-            <div class="tm-contact-page">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="tm-flex tm-contact-container">
-                            <div class="tm-bg-white-translucent text-xs-left tm-textbox tm-2-col-textbox-2 tm-textbox-padding tm-textbox-padding-contact">
 
-
-
-                                <!-- search results -->
-
-                                <div class="form-group">
-                                    <input type="text" name="country" value="Search result 1" class="form-control" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" name="country" value="Search result 2" class="form-control" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" name="country" value="Search result 3" class="form-control" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" name="country" value="Search result 4" class="form-control" readonly>
-                                </div>
-                            </div>
-
-                            <div class="tm-bg-white-translucent text-xs-left tm-textbox tm-2-col-textbox-2 tm-textbox-padding tm-textbox-padding-contact">
-
-                                <!-- search field (guide)-->
-                                <div class="form-group">
-                                    <input type="text" id="contact_namee" name="contact_namee" class="form-control" placeholder="City"  required/>
-                                </div>
-
-                                <div class="form-group">
-                                    <input type="Date" id="contact_email" name="contact_email" class="form-control" placeholder="Date"  required/>
-                                </div>
-                                <button type="submit" class="tm-searchGuide-btn pull-xs-right" style="height:50px;width:150px ">Search</button>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div> <!-- .cd-full-width -->
-</li>
 
 
 <!-- Page 5 Settings -->
@@ -196,10 +94,10 @@
                                 <h2 class="tm-contact-info">Receive Email about friends location</h2>
                                 <input type="checkbox" name="jobb" value="Code" style="height:20px;width:20px">
                                 <h2 class="tm-contact-info">Send Email to friends about your location</h2>
-                                <button type="submit" class="tm-setting-btn" style="height:60px;width:300px ">Change profile details</button>
                                 <button type="submit" class="tm-setting-btn" style="height:60px;width:300px " onclick="location.href='createTourGuide.html' ">Create guide tour</button>
-                                <button type="submit" class="tm-setting-btn" style="height:60px;width:300px " onclick="fbLogout()" id="fbLink">Log off</button>
-
+                                <form action="homePage.html">
+                                <button type="submit" class="tm-setting-btn" style="height:60px;width:300px " onclick="fbLogout()">Log off</button>
+                                </form>
                             </div>
                             <div class="tm-bg-transparent-translucent text-xs-left tm-textbox tm-2-col-textbox-2 tm-textbox-padding tm-textbox-padding-contact">
 
@@ -269,18 +167,65 @@
 
         </div>
 
-    </div> <!-- .cd-full-width -->
+    </div><!-- .cd-full-width -->
+
+
 </li>
 </ul> <!-- .cd-hero-slider -->
+<!--popup1(help friend)-->
+<div class="md-modal md-effect-1" id="modal-1">
+    <div class="md-content">
+        <h3>How to use the map</h3>
+        <div>
+            <ul>
+                <b>Friends Section. This is where you can see where your Facebook friends are and what they have been
+                up to. Use both the arial and street-vire map to check out their whereabouts and the search bar for finding
+                    specific friends too!</b>
+            </ul>
+            <button class="md-close">Close me!</button>
+        </div>
+    </div>
+</div>
+<!--popup2(help guide)-->
+<div class="md-modal md-effect-1" id="modal-2">
+    <div class="md-content">
+        <h3>How to use the map</h3>
+        <div>
+            <p>guide</p>
+            <ul>
+                <li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
+                <li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
+                <li><strong>Close:</strong> click on the button below to close the modal.</li>
+            </ul>
+            <button class="md-close">Close me!</button>
+        </div>
+    </div>
+</div>
+<!--popup3(friendlist)-->
+<div class="md-modal md-effect-7" id="modal-7">
+    <div class="md-content">
+        <h3>Friends</h3>
+        <div>
+            <p>guide</p>
+            <ul>
+                <li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
+                <li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
+                <li><strong>Close:</strong> click on the button below to close the modal.</li>
+            </ul>
+            <button class="md-close">Close me!</button>
+        </div>
+    </div>
+</div>
 <!-- icons at the bottom -->
 <footer class="tm-footer">
 
     <div class="tm-social-icons-container text-xs-center">
-
+        <p style="color: rgba(0,0,0,0)">????</p>
         <!--<button style="color: black;font-weight: bold"> FAQ </button>-->
-        <button style="color: black;font-weight: bold", onclick="location.href='Creative - Start Bootstrap Theme.html#services' "> About Us </button>
-        <button style="color: black;font-weight: bold"> FAQ </button>
-        <p>
+        <a class="btn btn-footer btn-xl js-scroll-trigger" href="homePage.html#services"> About Us </a>
+        <a class="btn btn-footer btn-xl js-scroll-trigger" href="homePage.html#contact"> FAQ </a>
+
+        <p style="color: rgba(0,0,0,1)">
             <!--This one is placed in-line and doesn't require the external JS:-->
 
             copyright &copy;
@@ -309,7 +254,6 @@
     <div class="loader-section section-right"></div>
 
 </div>
-
 <!-- load JS files -->
 <!-- icon script from font awesome -->
 <script src="https://use.fontawesome.com/2a0b548149.js"></script>
@@ -318,7 +262,20 @@
 <script src="js/bootstrap.min.js"></script>             <!-- Bootstrap js (v4-alpha.getbootstrap.com/) -->
 <script src="js/hero-slider-main.js"></script>          <!-- Hero slider (https://codyhouse.co/gem/hero-slider/) -->
 <script src="js/jquery.magnific-popup.min.js"></script> <!-- Magnific popup (http://dimsemenov.com/plugins/magnific-popup/) -->
+<script src="js/modernizr.custom.js"></script>
+<script src="js/classie.js"></script>
+<script src="js/modalEffects.js"></script>
+<div class="md-overlay"></div><!-- the overlay element -->
 
+
+<!-- for the blur effect -->
+<!-- by @derSchepp https://github.com/Schepp/CSS-Filters-Polyfill -->
+<script>
+    // this is important for IEs
+    var polyfilter_scriptpath = '/js/';
+</script>
+<script src="js/cssParser.js"></script>
+<script src="js/css-filters-polyfill.js"></script>
 <script>
 
     function adjustHeightOfPage(pageNo) {
@@ -442,9 +399,7 @@
         }
     }
     function myfunction2(name) {
-        alert(name);
         if (name == "Martin Hemmingsen") {
-            //focus martin
 
         } else if (name == "Kat Huang") {
             //focus kat
@@ -454,74 +409,66 @@
             //focus yida
         }
     }
-
+    window.fbAsyncInit = function() {
+        // FB JavaScript SDK configuration and setup
+        FB.init({
+            appId      : '110889832958985', // FB App ID
+            cookie     : true,  // enable cookies to allow the server to access the session
+            xfbml      : true,  // parse social plugins on this page
+            version    : 'v2.10' // use graph api version 2.10
+        });
+        // Check whether the user already logged in
+        FB.getLoginStatus(function(response) {
+            if (response.status === 'connected') {
+                //display user data
+                getFbUserData();
+            }
+        });
+    };
+    // Load the JavaScript SDK asynchronously
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    // Facebook login with JavaScript SDK
+    function fbLogin() {
+        FB.login(function (response) {
+            if (response.authResponse) {
+                // Get and display the user profile data
+                getFbUserData();
+            } else {
+                document.getElementById('status').innerHTML = 'User cancelled login or did not fully authorize.';
+            }
+        }, {scope: 'email'});
+    }
+    // Fetch the user profile data from facebook
+    function getFbUserData(){
+        FB.api('/me', 'GET',{fields: 'id,first_name,last_name,email,link,gender,locale,picture'},
+            function (response) {
+                document.getElementById('fbLink').setAttribute("onclick","fbLogout()");
+                document.getElementById('fbLink').innerHTML = 'Logout from Facebook';
+                document.getElementById('status').innerHTML = 'Thanks for logging in, ' + response.first_name + '!';
+                document.getElementById('userData').innerHTML = '<p><b>FB ID:</b> '+response.id+'</p><p><b>Name:</b> '+response.first_name+' '+response.last_name+'</p><p><b>Email:</b> '+response.email+'</p><p><b>Gender:</b> '+response.gender+'</p><p><b>Locale:</b> '+response.locale+'</p><p><b>Picture:</b> <img src="'+response.picture.data.url+'"/></p><p><b>FB Profile:</b> <a target="_blank" href="'+response.link+'">click to view profile</a></p>';
+            });
+        FB.api('/me/friends','GET', {fields: 'id'},
+            function (response) {
+                for (element in response.data) {
+                    document.getElementById('userFriends').innerHTML = 'FB friends: ' + element.id;
+                }
+            });
+    }
+    // Logout from facebook
+    function fbLogout() {
+        FB.logout(function() {
+            document.getElementById('userData').innerHTML = '';
+            document.getElementById('userFriends').innerHTML = '';
+            document.getElementById('status').innerHTML = 'You have successfully logout from Facebook.';
+        });
+    }
 </script>
-<script>
-window.fbAsyncInit = function() {
-    // FB JavaScript SDK configuration and setup
-    FB.init({
-      appId      : '110889832958985', // FB App ID
-      cookie     : true,  // enable cookies to allow the server to access the session
-      xfbml      : true,  // parse social plugins on this page
-      version    : 'v2.10' // use graph api version 2.10
-    });
 
-    // Check whether the user already logged in
-	FB.getLoginStatus(function(response) {
-		if (response.status === 'connected') {
-			//display user data
-			getFbUserData();
-
-		}
-	});
-};
-
-// Load the JavaScript SDK asynchronously
-(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-
-// Facebook login with JavaScript SDK
-function fbLogin() {
-    FB.login(function (response) {
-        if (response.authResponse) {
-            // Get and display the user profile data
-            getFbUserData();
-        } else {
-            document.getElementById('status').innerHTML = 'User cancelled login or did not fully authorize.';
-        }
-    }, {scope: 'email'});
-}
-
-// Fetch the user profile data from facebook
-function getFbUserData(){
-    FB.api('/me', 'GET',{fields: 'id,first_name,last_name,email,link,gender,locale,picture'},
-    function (response) {
-        document.getElementById('fbLink').setAttribute("onclick","fbLogout()");
-        document.getElementById('fbLink').innerHTML = 'Logout from Facebook';
-        document.getElementById('status').innerHTML = 'Thanks for logging in, ' + response.first_name + '!';
-        document.getElementById('userData').innerHTML = '<p><b>FB ID:</b> '+response.id+'</p><p><b>Name:</b> '+response.first_name+' '+response.last_name+'</p><p><b>Email:</b> '+response.email+'</p><p><b>Gender:</b> '+response.gender+'</p><p><b>Locale:</b> '+response.locale+'</p><p><b>Picture:</b> <img src="'+response.picture.data.url+'"/></p><p><b>FB Profile:</b> <a target="_blank" href="'+response.link+'">click to view profile</a></p>';
-    });
-    FB.api('/me/friends','GET', {fields: 'id'},
-    function (response) {
-      for (element in response.data) {
-                     document.getElementById('userFriends').innerHTML = 'FB friends: ' + element.id;
-                 }
-    });
-}
-
-// Logout from facebook
-function fbLogout() {
-    FB.logout(function() {
-        document.getElementById('userData').innerHTML = '';
-        document.getElementById('userFriends').innerHTML = '';
-        document.getElementById('status').innerHTML = 'You have successfully logout from Facebook.';
-    });
-}
-</script>
 </body>
 </html>

@@ -74,7 +74,7 @@ a:focus {
 	    justify-content: space-between;
 	padding-left: 10px;
 	padding-right: 10px;
-	background-color: rgba(255,255,255,0.8);
+	background-color: rgba(255,255,255,1);
 	overflow: auto;
 }
 
@@ -200,16 +200,18 @@ button:focus { outline: none; }
 	position: absolute;
 	bottom: 0;
 	left: 0;	
+
 }
 
 .tm-footer {
     width: 100%;
+    background-color: rgba(255,255,255,1);
     color: rgb(255,255,255);
     z-index: 1001;
     padding: 0 11px 12px;
 }
 
-.tm-social-icons-container {margin-bottom: 0px; background-color:rgba(255,69,0,0);width:100%;}
+.tm-social-icons-container {margin-bottom: 0px; background-color:rgba(255,255,255,1);width:100%;}
 
 .cd-full-width {
 	display: -ms-flexbox;
@@ -232,9 +234,18 @@ button:focus { outline: none; }
 }
 
 .tm-contact-container { max-width: 1150px; }
-
+.btn-primary{
+	background-color: #FF4500;
+}
+.btn-footer{
+	color:rgba(255,255,255,1);
+	background-color: #FF4500;
+}
 .form-control,
 .tm-submit-btn {
+	font-size: 1.8rem;
+}
+.tm-help-btn {
 	font-size: 1.8rem;
 }
 .form-control {
@@ -259,6 +270,18 @@ button:focus { outline: none; }
 	margin-bottom:1.5rem ;
 	font-weight: 400;
 	font-size: 1.5rem;
+}
+.tm-help-btn {
+	background-color: #FF4500;
+	border: none;
+	color: white;
+	padding: 5px 10px 10px 10px ;
+	margin-top: 0px;
+	margin-bottom:1.5rem ;
+	font-weight: 400;
+	font-size: 2.75rem;
+    height:50px;
+    width:210px;
 }
 .tm-searchGuide-btn {
 	background-color: #FF4500;
@@ -303,23 +326,27 @@ button:focus { outline: none; }
 }
 .tm-submit-btn:hover,
 .tm-submit-btn:focus {
-	background-color: #2277EE;
+	background-color: #E73914;
+}
+.tm-help-btn:hover,
+.tm-help-btn:focus {
+	background-color: #E73914;
 }
 .tm-searchGuide-btn:hover,
 .tm-searchGuide-btn:focus {
-	background-color: #2277EE;
+	background-color: #E73914;
 }
 .tm-createGuideTour-btn:hover,
 .tm-createGuideTour-btn:focus {
-	background-color: #2277EE;
+	background-color: #E73914;
 }
 .tm-setting-btn:hover,
 .tm-setting-btn:focus {
-	background-color: #2277EE;
+	background-color: #E73914;
 }
 .tm-login-btn:hover,
 .tm-login-btn:focus {
-	background-color: #2277EE;
+	background-color: #E73914;
 }
 textarea { height: 168px; }
 
@@ -385,7 +412,7 @@ border-top-color: #f9c922; /* Chrome, Opera 15+, Safari 5+ */ animation: spin 1.
     top: 44px;
 }
 
-.cd-slider-nav .navbar-nav { background-color: rgba(255,255,255,0.7); }
+.cd-slider-nav .navbar-nav { background-color: rgba(255,255,255,1); }
 
 .cd-slider-nav a, 
 .navbar-nav .nav-link { height: 50px; }
@@ -753,7 +780,7 @@ figure.effect-ruby:hover img {
 		height: 80px;
 	}
 
-	.tm-social-icons-container { margin-bottom: 20px; }
+	.tm-social-icons-container { margin-bottom: 20px; background-color: rgba(255,255,255,0.7)}
 
 	.cd-full-width .container-fluid {
 		margin-top: 0;

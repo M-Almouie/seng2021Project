@@ -40,13 +40,16 @@ exports.getUser = function(id) {
     });
 }
 
-exports.createUser = function(id, name, email, friends) {
+exports.createUser = function(id, name, email,picture ,location) {
     return User.create({
         id: id,
         name: name,
-        email: email
+        email: email,
+        pictureL picture,
+        location: location
     });
 }
+
 
 //User.belongsToMany(User,{as: 'Friend', through: 'Friends'});
 

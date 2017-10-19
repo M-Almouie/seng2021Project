@@ -2,11 +2,10 @@
 var exports = module.exports = {};
 
 
-var User = function(id, name, email, picture, location, friends) {
+var User = function(id, name, email, picture, location) {
     this.id=id;
     this.name=name;
     this.email=email;
-    this.friends=friends;
     this.location = location;
     this.picture = picture;
 }
@@ -56,7 +55,7 @@ User.prototype.sayEmail = function () {
     console.log(this.email);
 }
 
-exports.createUser = function(id, name, email, picture, location, friends){
-    return new User(id, name, email, picture, location, friends);
+exports.createUser = function(id, name, email, picture, location){
+    return new User(id, name, email, picture, location);
 }
 

@@ -7,10 +7,8 @@ var User = require("./user");
 var db = require("./staticdb");
 db.init();
 
-function mapper(fIds,fnames) {
+function mapper(fIds,fnames,firstname) {
     var string = '    var friendImage = "img/MyTrackLogo.png";\n' +
-    '    var map1;\n' +
-    '    var map2;\n' +
     '    if (navigator.geolocation) {\n' +
     '        navigator.geolocation.getCurrentPosition(function (position) {\n' +
     '            var pos = {\n' +
@@ -23,14 +21,111 @@ function mapper(fIds,fnames) {
     '            map2 = createMap(\'mapSecond\',17,pos,\'panorama2\');\n' +
     '            map1.setCenter(pos);\n' +
     '            map2.setCenter(pos);\n' +
+    '            localStorage.setItem("map1",map1);\n'+
+    '            name = '+firstname+';\n' +
+    '            document.getElementById("myname").value = name;' +
     '            var me = createUserMarker(pos,map1);\n'+
-    '            var marker1 = createFriendMarker(tartous, map1, friendImage);\n' +
-    '            var marker2 = createFriendMarker(roseBay, map1, friendImage);\n' +
-    '            var marker3 = createFriendMarker(unswLibrary, map1, friendImage);\n' +
-    '            var marker4 = createFriendMarker(cse, map1, friendImage);\n' +
-    '            var marker5 = createFriendMarker(sydney, map1, friendImage);\n' +
-    '            var marker6 = createFriendMarker(coogee, map1, friendImage);\n' +
-    '\n';
+    '            var marker1 = createFriendMarker(tartous, map1, friendImage,"john");\n' +
+    '            var marker2 = createFriendMarker(roseBay, map1, friendImage,"john");\n' +
+    '            var marker3 = createFriendMarker(unswLibrary, map1, friendImage,"john");\n' +
+    '            var marker4 = createFriendMarker(cse, map1, friendImage,"john");\n' +
+    '            var marker5 = createFriendMarker(sydney, map1, friendImage,"john");\n' +
+    '            var marker6 = createFriendMarker(coogee, map1, friendImage,"john");\n' +
+                'var meString = \'<div id="content">\'+\n' +
+                '    \'<div id="siteNotice">\'+\n' +
+                '    \'</div>\'+\n' +
+                '    \'<h1 id="firstHeading" class="firstHeading">You Are Here</h1>\'+\n' +
+                '    \'<div id="bodyContent">\'+\n' +
+                '    \'<p>Mohamed Al Mouiee</p>\'+\n' +
+                '    \'<p>Location: Randwick, Australia</p>\'+\n' +
+                '    \'<p>Currently Active</p>\'+\n' +
+                '    \'</div>\'+\n' +
+                '    \'</div>\';\n' +
+                '\n' +
+                'var joString = \'<div id="content">\'+\n' +
+                '    \'<div id="siteNotice">\'+\n' +
+                '    \'</div>\'+\n' +
+                '    \'<h1 id="firstHeading" class="firstHeading">John Smith</h1>\'+\n' +
+                '    \'<div id="bodyContent">\'+\n' +
+                '    \'<p>John Smith</p>\'+\n' +
+                '    \'<p>Location: Rose Bay, Australia</p>\'+\n' +
+                '    \'<p>Last Seen: 12:39pm 19/09/2017</p>\'+\n' +
+                '    \'</div>\'+\n' +
+                '    \'</div>\';\n' +
+                '\n' +
+                'var boString = \'<div id="content">\'+\n' +
+                '    \'<div id="siteNotice">\'+\n' +
+                '    \'</div>\'+\n' +
+                '    \'<h1 id="firstHeading" class="firstHeading">Some body</h1>\'+\n' +
+                '    \'<div id="bodyContent">\'+\n' +
+                '    \'<p>Some body</p>\'+\n' +
+                '    \'<p>Location: Coogee, Australia</p>\'+\n' +
+                '    \'<p>Last Seen: 12:39pm 19/09/2017</p>\'+\n' +
+                '    \'</div>\'+\n' +
+                '    \'</div>\';\n' +
+                '\n' +
+                'var soString = \'<div id="content">\'+\n' +
+                '    \'<div id="siteNotice">\'+\n' +
+                '    \'</div>\'+\n' +
+                '    \'<h1 id="firstHeading" class="firstHeading">Every body</h1>\'+\n' +
+                '    \'<div id="bodyContent">\'+\n' +
+                '    \'<p>Every body</p>\'+\n' +
+                '    \'<p>Location: Randwick, Australia</p>\'+\n' +
+                '    \'<p>Last Seen: 12:39pm 19/09/2017</p>\'+\n' +
+                '    \'</div>\'+\n' +
+                '    \'</div>\';\n' +
+                '\n' +
+                'var moString = \'<div id="content">\'+\n' +
+                '    \'<div id="siteNotice">\'+\n' +
+                '    \'</div>\'+\n' +
+                '    \'<h1 id="firstHeading" class="firstHeading">Every body</h1>\'+\n' +
+                '    \'<div id="bodyContent">\'+\n' +
+                '    \'<p>Every body</p>\'+\n' +
+                '    \'<p>Location: Randwick, Australia</p>\'+\n' +
+                '    \'<p>Last Seen: 12:39pm 19/09/2017</p>\'+\n' +
+                '    \'</div>\'+\n' +
+                '    \'</div>\';\n' +
+                '\n' +
+                'var doString = \'<div id="content">\'+\n' +
+                '    \'<div id="siteNotice">\'+\n' +
+                '    \'</div>\'+\n' +
+                '    \'<h1 id="firstHeading" class="firstHeading">Any body</h1>\'+\n' +
+                '    \'<div id="bodyContent">\'+\n' +
+                '    \'<p>Any Body</p>\'+\n' +
+                '    \'<p>Location: Randwick, Australia</p>\'+\n' +
+                '    \'<p>Last Seen: 12:39pm 19/09/2017</p>\'+\n' +
+                '    \'</div>\'+\n' +
+                '    \'</div>\';\n' +
+                '\n' +
+                'var foString = \'<div id="content">\'+\n' +
+                '    \'<div id="siteNotice">\'+\n' +
+                '    \'</div>\'+\n' +
+                '    \'<h1 id="firstHeading" class="firstHeading">The body</h1>\'+\n' +
+                '    \'<div id="bodyContent">\'+\n' +
+                '    \'<p>The body</p>\'+\n' +
+                '    \'<p>Location: Rose Bay</p>\'+\n' +
+                '    \'<p>Last Seen: 12:39pm 19/09/2017</p>\'+\n' +
+                '    \'</div>\'+\n' +
+                '    \'</div>\';\n' +
+                '\n' +
+                'var infowindow0 = new google.maps.InfoWindow({\n' +
+        '          content: meString\n' +
+        '        });'+
+                'me.addListener(\'click\', function() {\n' +
+        '         setMapOnAll(null);\n' +
+        '        });'+
+                'var infowindow1 = WindowInfo(moString);\n' +
+                'createPopupBox(map1,marker1,infowindow1);\n' +
+                'var infowindow2 = WindowInfo(joString);\n' +
+                'createPopupBox(map1,marker2,infowindow2);\n' +
+                'var infowindow3 = WindowInfo(doString);\n' +
+                'createPopupBox(map1,marker3,infowindow3);\n' +
+                'var infowindow4 = WindowInfo(soString);\n' +
+                'createPopupBox(map1,marker4,infowindow4);\n' +
+                'var infowindow5 = WindowInfo(foString);\n' +
+                'createPopupBox(map1,marker5,infowindow5);\n' +
+                'var infowindow6 = WindowInfo(boString);\n' +
+                'createPopupBox(map1,marker6,infowindow6);\n';
     var data = fnames;
     if(fIds) {
         for(var i = 0; i < fIds.length; i++) {
@@ -138,7 +233,7 @@ my_http.createServer(function(request,response){
                                 fnames = fnames.replace(/&/,"");
                                 var fNames = fnames.match(/\w+,?/);
                                 console.log("first friend is: " +fNames[0]);
-                                var variable = mapper(fIds,fnames);
+                                var variable = mapper(fIds,fnames,firstName);
                                 response.write(variable)
                             }
                                 console.log("user is at : "+loginUser.location.lat+", "+loginUser.location.lng);
